@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState } from "react";
 
 export const HW3 = () => {
   // 1️⃣ Раскомментируйте JSX(HW3.tsx) и вы увидите,
@@ -11,9 +11,9 @@ export const HW3 = () => {
 
   // ❗ Массив с данными не трогаем! Текст не меняем !
 
-  const [currentText, setCurrentText] = useState('');
+  const [currentText, setCurrentText] = useState("");
   const [texts, setTexts] = useState<string[]>([
-    'То, что вы делаете по ночам, то и делает вас богатым. (Аль Капоне)',
+    "То, что вы делаете по ночам, то и делает вас богатым. (Аль Капоне)",
   ]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -23,27 +23,27 @@ export const HW3 = () => {
   const handleSave = () => {
     // ЗАСЕТАТЬ БЫ ТЕКСТ В texts И НЕ ПОТЕРЯТЬ НАПУТСТВИЕ ИЗ ПРОШЛОГО ВЕКА)
     // А ЗАТЕМ УБРАТЬ ЗА СОБОЙ В currentText
-    setTexts((p)=>[...p, currentText])
-    setCurrentText("")
+    setTexts((p) => [...p, currentText]);
+    setCurrentText("");
   };
 
   return (
-    <div id={'hw03'}>
+    <div id={"hw03"}>
       {currentText ? (
-        <h1 id={'hw03-text'}>ЗДЕСЬ ХОТЕЛОСЬ БЫ УВИДЕТЬ ВВОДИМЫЙ ТЕКСТ</h1>
+        <h1 id={"hw03-text"}>{currentText}</h1>
       ) : (
-        <h1 id={'hw03-default-text'}>Здесь появится новое дело</h1> // ничего не меняем, здесь все норм
+        <h1 id={"hw03-default-text"}>Здесь появится новое дело</h1> // ничего не меняем, здесь все норм
       )}
 
-      <input id={'hw03-input'} type="text" value={currentText} onChange={handleChange} />
+      <input id={"hw03-input"} type="text" value={currentText} onChange={handleChange} />
 
-      <button id={'hw03-button'} onClick={handleSave}>
+      <button id={"hw03-button"} onClick={handleSave}>
         Сохранить
       </button>
 
-      <h1 style={{ marginTop: '50px' }}>СПИСОК ДЕЛ НА ДЕНЬ:</h1>
+      <h1 style={{ marginTop: "50px" }}>СПИСОК ДЕЛ НА ДЕНЬ:</h1>
 
-      <ol id={'hw03-tasks'}>
+      <ol id={"hw03-tasks"}>
         {texts.map((el, index) => {
           return (
             <li key={index} id={`hw03-task-${index}`}>
